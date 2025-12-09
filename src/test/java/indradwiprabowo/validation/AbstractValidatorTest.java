@@ -11,9 +11,9 @@ import java.util.Set;
 
 public abstract class AbstractValidatorTest {
 
-    private ValidatorFactory validatorFactory;
+    protected ValidatorFactory validatorFactory;
 
-    private Validator validator;
+    protected Validator validator;
 
     @BeforeEach
     void setUp() {

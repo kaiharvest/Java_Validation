@@ -2,6 +2,7 @@ package indradwiprabowo.validation;
 
 import indradwiprabowo.validation.groub.CreditCardPaymentGroup;
 import indradwiprabowo.validation.groub.VirtualAccountPaymentGroup;
+import indradwiprabowo.validation.payload.EmailErrorPayload;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -23,7 +24,7 @@ public class Payment {
     private Long amount;
 
     @NotBlank(groups = {CreditCardPaymentGroup.class}, message = "credit card can not blank")
-    @LuhnCheck(groups = {CreditCardPaymentGroup.class}, message = "invalid credit card number")
+    @LuhnCheck(groups = {CreditCardPaymentGroup.class}, message = "invalid credit card number", payload = {EmailErrorPayload.class})
     private String creditCard;
 
     @NotBlank(groups = {VirtualAccountPaymentGroup.class}, message = "virtual account can not blank")
