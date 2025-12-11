@@ -1,5 +1,7 @@
 package indradwiprabowo.validation;
 
+import indradwiprabowo.validation.constraint.CheckCase;
+import indradwiprabowo.validation.enums.CaseMode;
 import indradwiprabowo.validation.groub.CreditCardPaymentGroup;
 import indradwiprabowo.validation.groub.VirtualAccountPaymentGroup;
 import indradwiprabowo.validation.payload.EmailErrorPayload;
@@ -14,6 +16,8 @@ import org.hibernate.validator.constraints.Range;
 
 public class Payment {
 
+    @CheckCase(groups = {CreditCardPaymentGroup.class, VirtualAccountPaymentGroup.class},
+    mode = CaseMode.UPPER, message = "{order.id.upper}")
     @NotBlank(groups = {CreditCardPaymentGroup.class, VirtualAccountPaymentGroup.class},
             message = "{order.id.notblank}")
     @Size(groups = {CreditCardPaymentGroup.class, VirtualAccountPaymentGroup.class},

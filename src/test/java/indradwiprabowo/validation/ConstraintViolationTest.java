@@ -35,7 +35,7 @@ public class ConstraintViolationTest {
         person.setLastName("wkwkwkwkkwkwkwkwkwkkkwkwk");
 
         Set<ConstraintViolation<Person>> violations = validator.validate(person);
-        Assertions.assertEquals(2, violations.size());
+        Assertions.assertEquals(3, violations.size());
 
         for (ConstraintViolation<Person> violation : violations) {
             System.out.println("Message : " + violation.getMessage());
@@ -51,6 +51,12 @@ public class ConstraintViolationTest {
         Person person = new Person();
         person.setFirstName("Indra");
         person.setLastName("Dwi");
+
+        Address address = new Address();
+        address.setStreet("Jalan Raya");
+        address.setCity("Jakarta");
+        address.setCountry("Indonesia");
+        person.setAddress(address);
 
         Set<ConstraintViolation<Person>> violations = validator.validate(person);
         Assertions.assertEquals(0, violations.size());
