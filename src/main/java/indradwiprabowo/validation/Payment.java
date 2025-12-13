@@ -14,7 +14,7 @@ import org.hibernate.validator.constraints.Range;
 
 public class Payment {
 
-    @CheckOrderId(groups = {CreditCardPaymentGroup.class, VirtualAccountPaymentGroup.class})
+    @CheckOrderId(groups = {CreditCardPaymentGroup.class, VirtualAccountPaymentGroup.class}, message = "{order.id.invalid}")
     private String orderId;
 
     @NotNull(groups = {CreditCardPaymentGroup.class, VirtualAccountPaymentGroup.class},
