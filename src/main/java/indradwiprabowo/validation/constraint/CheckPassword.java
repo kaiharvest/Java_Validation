@@ -1,6 +1,5 @@
 package indradwiprabowo.validation.constraint;
 
-import indradwiprabowo.validation.enums.CaseMode;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 
@@ -11,17 +10,17 @@ import java.lang.annotation.Target;
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+
 @Documented
-@Constraint(validatedBy = {CheckCaseValidator.class})
+@Constraint(validatedBy = {CheckPasswordValidator.class})
 @Target({FIELD, ANNOTATION_TYPE, TYPE})
 @Retention(RUNTIME)
-public @interface CheckCase {
+public @interface CheckPassword {
 
-    String message() default "invalid case format";
+    String message() default "password adn retype password mush same";
 
     Class<?>[] groups() default { };
 
     Class<? extends Payload>[] payload() default { };
 
-    CaseMode mode();
 }
