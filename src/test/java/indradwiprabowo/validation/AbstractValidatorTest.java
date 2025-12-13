@@ -1,6 +1,9 @@
 package indradwiprabowo.validation;
 
+import indradwiprabowo.validation.extractor.DataIntegerValueExecutor;
 import indradwiprabowo.validation.extractor.DataValueExtractor;
+import indradwiprabowo.validation.extractor.EntryValueExtractorKey;
+import indradwiprabowo.validation.extractor.EntryValueExtractorValue;
 import jakarta.validation.*;
 import jakarta.validation.executable.ExecutableValidator;
 import org.junit.jupiter.api.AfterEach;
@@ -23,6 +26,9 @@ public abstract class AbstractValidatorTest {
         // validatorFactory = Validation.buildDefaultValidatorFactory();
         validatorFactory = Validation.byDefaultProvider().configure()
                 .addValueExtractor(new DataValueExtractor())
+                .addValueExtractor(new EntryValueExtractorKey())
+                .addValueExtractor(new EntryValueExtractorValue())
+                .addValueExtractor(new DataIntegerValueExecutor())
                 .buildValidatorFactory();
         validator = validatorFactory.getValidator();
         executableValidator = validator.forExecutables();
