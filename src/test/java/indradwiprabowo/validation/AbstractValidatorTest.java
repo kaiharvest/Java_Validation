@@ -49,6 +49,13 @@ public abstract class AbstractValidatorTest {
         }
     }
 
+    void validateWhichException(Object o) {
+        Set<ConstraintViolation<Object>> violations = validator.validate(o);
+        if (!violations.isEmpty()) {
+            throw new ConstraintViolationException(violations);
+        }
+    }
+
     void validateWithGroup(Object o, Class<?>... groups) {
         Set<ConstraintViolation<Object>> violations = validator.validate(o, groups);
         for (ConstraintViolation<Object> violation : violations) {

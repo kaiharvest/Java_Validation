@@ -27,8 +27,6 @@ public class ValueExtractorTest extends AbstractValidatorTest {
     }
 
     // Data Container bukan Generic Type
-
-
     @Test
     void testSampleDataInteger() {
         SampleDataInteger sampleDataInteger = new SampleDataInteger();
