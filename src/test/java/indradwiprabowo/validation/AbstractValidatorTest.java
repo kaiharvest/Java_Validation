@@ -49,6 +49,7 @@ public abstract class AbstractValidatorTest {
         }
     }
 
+    // Validation Error Bawaan dari Been Validation Sendiri
     void validateWhichException(Object o) {
         Set<ConstraintViolation<Object>> violations = validator.validate(o);
         if (!violations.isEmpty()) {
